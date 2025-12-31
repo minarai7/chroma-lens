@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChromaLens – Color Harmony Analyzer</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <p>Test</p>
+      <h1>Login</h1>
+    </div>
+    <button id="mobile-menu-button" aria-label="Open menu">
+      <svg id ="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <line class="line line1" x1="4" y1="7"  x2="20" y2="7" />
+        <line class="line line2" x1="4" y1="12" x2="20" y2="12" />
+        <line class="line line3" x1="4" y1="17" x2="20" y2="17" />
+      </svg>
+  </button>
+    <nav>
+      <ul>
+        <li><a href="#" id="home">Home</a></li>
+        <li><a href="#">History</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LEFT: INPUT -->
+    <section>
+      <h2>Image Input</h2>
+      <label class="upload-box">
+        <input type="file" class="upload-input" accept="image/*" />
+        <div class="placeholder">
+          Click to upload an image<br />
+          (PNG, JPG, WebP)
+        </div>
+        <img class="preview" alt="" hidden/>
+      </label>
+    </section>
+
+    <!-- RIGHT: OUTPUT -->
+    <div style="display: grid; gap: 1.5rem;">
+      <section >
+        <h2>Hue Distribution</h2>
+        <div class="placeholder">
+          Hue histogram will appear here
+        </div>
+      </section>
+
+      <section>
+        <h2>Extracted Palette</h2>
+        <div class="grid">
+          <!-- color swatches -->
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Harmony Suggestions</h2>
+        <div class="grid">
+          <!-- harmony preview swatches -->
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+          <div class="swatch"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 ChromaLens · Built while learning fullstack
+  </footer>
+
+  <!-- JS comes later -->
+  <script src="js/main.js"></script>
+</body>
+</html>
