@@ -2,31 +2,44 @@
 
 const mobileBtn = document.querySelector("#mobile-menu-button");
 const nav = document.querySelector("nav");
-const home =　document.querySelector("#home");
 
-mobileBtn.addEventListener("click", openMenu);
+mobileBtn.addEventListener("click", toggleMenu);
 
-home.addEventListener("click", closeMenu);
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach(link => {
+    link.addEventListener("click", toggleMenu);
+  });
 
 document.body.addEventListener("click", (e) => {
     if (nav.classList.contains("active") && !nav.contains(e.target)) {
-        closeMenu(e);
+        toggleMenu(e);
     }
 });
 
-function openMenu(e) {
+function toggleMenu(e) {
     e.stopPropagation();
-    nav.classList.add("active");
-    mobileBtn.style.display = "none";
+    nav.classList.toggle("active");
+    mobileBtn.classList.toggle("clicked");
 }
 
-function closeMenu(e) {
-    e.stopPropagation();
-    nav.classList.remove("active");
-    mobileBtn.style.display = "flex";
+// Check if a selected image exists in localStorage
+const selectedImage = localStorage.getItem("selectedImage");
+if (selectedImage) {
+const previewImage = document.querySelector(".preview");
+const uploadBox = document.querySelector(".upload-box");
+
+// Set the selected image as the preview
+previewImage.src = selectedImage;
+previewImage.hidden = false;
+uploadBox.classList.add("has-image");
+
+// Clear the selected image from localStorage
+localStorage.removeItem("selectedImage");
 }
 
 // Image Upload and Preview Logic
+
 const uploadInput = document.querySelector(".upload-input");
 const previewImage = document.querySelector(".preview")
 const uploadBox = document.querySelector(".upload-box");
@@ -43,7 +56,6 @@ uploadInput.addEventListener("change", () => {
 
 // Placeholder for future logic
 // Later:
-// - image upload handling
 // - canvas analysis
 // - palette extraction
 // - harmony generation
